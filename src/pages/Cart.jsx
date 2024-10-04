@@ -13,12 +13,12 @@ const Cart = () => {
         <table className="w-full">
           <thead>
             <tr className="border-b border-slate-900/20 text-gray-30 regular-14 xs:regular-16 text-start py-12">
-              <th className="p-1 text-left">Products</th>
-              <th className="p-1 text-left">Title</th>
-              <th className="p-1 text-left">Price</th>
-              <th className="p-1 text-left">Quantity</th>
+              <th className="p-1 text-left">Producto</th>
+              <th className="p-1 text-left">Descripción</th>
+              <th className="p-1 text-left">Precio</th>
+              <th className="p-1 text-left">Cantidad</th>
               <th className="p-1 text-left">Total</th>
-              <th className="p-1 text-left">Remove</th>
+              <th className="p-1 text-left">Quitar</th>
             </tr>
           </thead>
           <tbody>
@@ -65,7 +65,7 @@ const Cart = () => {
         {/* cart total */}
         <div className="flex flex-col xl:flex-row gap-20 mt-20">
           <div className="flex flex-1 flex-col gap-2">
-            <h4 className="bold-22">Summary</h4>
+            <h4 className="bold-22">Resumen</h4>
             <div>
               <div className="flexBetween py-3">
                 <h4 className="medium-16">Subtotal:</h4>
@@ -73,22 +73,22 @@ const Cart = () => {
               </div>
               <hr />
               <div className="flexBetween py-3">
-                <h4 className="medium-16">Shipping Fee:</h4>
-                <h4 className="text-gray-30 font-semibold">Q{getTotalCartAmount()===0?0:2}</h4>
+                <h4 className="medium-16">Envío:</h4>
+                <h4 className="text-gray-30 font-semibold">Q{getTotalCartAmount()===0?0:0}</h4>
               </div>
               <hr />
               <div className="flexBetween py-3">
                 <h4 className="medium-18">Total:</h4>
-                <h4 className="bold-18">Q{getTotalCartAmount()===0?0:getTotalCartAmount()+2}</h4>
+                <h4 className="bold-18">Q{getTotalCartAmount()===0?0:getTotalCartAmount()+0}</h4>
               </div>
             </div>
-            <button onClick={()=> navigate('/order')}  className="btn-secondary w-52 rounded">Proceed to Checkout</button>
+            <button onClick={()=> navigate('/order')}  className="btn-secondary w-52 rounded">Registrar Orden</button>
           </div>
           <div className="flex flex-1 flex-col gap-8">
-            <h4 className="bold-20 capitalize">Your coupon code enter here:</h4>
+            <h4 className="bold-20 capitalize">Ingresa el código de tu cupón:</h4>
             <div className="flexBetween h-[2.8rem] bg-primary ring-1 ring-slate-900/10 w-full max-w-[488px] rounded">
-              <input type="text" placeholder="Coupon code" className="pl-3 bg-transparent border-none outline-none"/>
-              <button className="btn-dark rounded relative !px-10 !py-3">Submit</button>
+              <input type="text" placeholder="Código de cupón" className="pl-3 bg-transparent border-none outline-none"/>
+              <button className="btn-dark rounded relative !px-10 !py-3">Cargar</button>
             </div>
           </div>
         </div>

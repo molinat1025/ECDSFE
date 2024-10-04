@@ -17,7 +17,7 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div className="flex flex-col items-center md:items-start">
-          <h4 className="bold-20 mb-4">Quick Links</h4>
+          <h4 className="bold-20 mb-4">Accesos Rápidos</h4>
           <ul className="space-y-2 regular-15 text-gray-30">
             <li><a href="/" className="hover:text-secondary">Inicio</a></li>
             <li><a href="/#categories" className="hover:text-secondary">Categoría</a></li>
@@ -28,16 +28,16 @@ const Footer = () => {
 
         {/* Contact Information */}
         <div className="flex flex-col items-center md:items-start">
-          <h4 className="text-lg mb-4">Contact Us</h4>
-          <p>Email: <a href="mailto:support@fusionmart.com" className="hover:text-secondary">support@fusionmart.com</a></p>
-          <p>Phone: <a href="tel:+1234567890" className="hover:text-secondary">+123 456 7890</a></p>
-          <p>Address: 123 Fusion Street, City, Country</p>
+          <h4 className="text-lg mb-4">Contáctanos</h4>
+          <p>Correo: <a href="mailto:support@fusionmart.com" className="hover:text-secondary">contact@deluxeshop.com</a></p>
+          <p>Teléfono: <a href="tel:+1234567890" className="hover:text-secondary">+502 2456 7890</a></p>
+          <p>Dirección: Zona 4 de Mixco, Guatemala</p>
         </div>
       </div>
       <div className="flex flex-col items-center mt-8">
         <SocialIcons />
         <hr className="h-[1px] w-full max-w-screen-md my-4 border-white" />
-        <p className="text-center text-sm">&copy; {new Date().getFullYear()} FusionMart | All rights reserved.</p>
+        <p className="text-center text-sm">&copy; {new Date().getFullYear()} DeluxeShop | Todos los derechos reservados.</p>
       </div>
     </footer>
   );

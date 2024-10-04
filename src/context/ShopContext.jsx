@@ -5,8 +5,8 @@ export const ShopContext = createContext(null);
 
 const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
-  const url = "http://localhost:4000";
-  //const url = "https://ecdsbe-antonio-molinas-projects.vercel.app/";
+  //const url = "http://localhost:4000";
+  const url = "https://deluxeshop-pg2-5634aafe160a.herokuapp.com/";
   const [token, setToken] = useState("");
   const [all_products, setAll_products] = useState([]);
 
