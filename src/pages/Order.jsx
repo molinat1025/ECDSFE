@@ -44,7 +44,7 @@ const Order = () => {
       let orderData = {
         address:data,
         items:orderItems,
-        amount:getTotalCartAmount()+2,
+        amount:getTotalCartAmount()+0,
       }
       let response = await axios.post(url+"/api/order/place",orderData,{headers:{token}})
       if(response.data.success){
@@ -71,7 +71,7 @@ const Order = () => {
       <form onSubmit={placeOrder} className="flex flex-col xl:flex-row gap-20 xl:gap-28 ">
         {/* delivery information */}
         <div className="flex flex-1 flex-col gap-3 text-[95%]">
-          <h3 className="bold-28 mb-4">Delivery information</h3>
+          <h3 className="bold-28 mb-4">Información de Envío</h3>
           <div className="flex gap-3">
             <input
             required
@@ -79,7 +79,7 @@ const Order = () => {
               name="firstName"
               value={data.firstName}
               type="text"
-              placeholder="First name"
+              placeholder="Nombre"
               className="ring-1 ring-slate-900/15 p-1 pl-3 rounded-sm outline-none w-1/2"
             />
             <input
@@ -88,7 +88,7 @@ const Order = () => {
             name="lastName"
             value={data.lastName}
               type="text"
-              placeholder="Last name"
+              placeholder="Apellido"
               className="ring-1 ring-slate-900/15 p-1 pl-3 rounded-sm outline-none w-1/2"
             />
           </div>
@@ -98,7 +98,7 @@ const Order = () => {
           name="email"
           value={data.email}
             type="email"
-            placeholder="Email address"
+            placeholder="Correo"
             className="ring-1 ring-slate-900/15 p-1 pl-3 rounded-sm outline-none"
           />
           <input
@@ -107,7 +107,7 @@ const Order = () => {
           name="phone"
           value={data.phone}
             type="text"
-            placeholder="Phone number"
+            placeholder="Teléfono"
             className="ring-1 ring-slate-900/15 p-1 pl-3 rounded-sm outline-none"
           />
           <input
@@ -116,7 +116,7 @@ const Order = () => {
           name="street"
           value={data.street}
             type="text"
-            placeholder="Street"
+            placeholder="Dirección"
             className="ring-1 ring-slate-900/15 p-1 pl-3 rounded-sm outline-none"
           />
           <div className="flex gap-3">
@@ -126,7 +126,7 @@ const Order = () => {
             name="city"
             value={data.city}
               type="text"
-              placeholder="City"
+              placeholder="Municipio"
               className="ring-1 ring-slate-900/15 p-1 pl-3 rounded-sm outline-none w-1/2"
             />
             <input
@@ -135,7 +135,7 @@ const Order = () => {
             name="state"
             value={data.state}
               type="text"
-              placeholder="State"
+              placeholder="Departamento"
               className="ring-1 ring-slate-900/15 p-1 pl-3 rounded-sm outline-none w-1/2"
             />
           </div>
@@ -146,7 +146,7 @@ const Order = () => {
             name="zipcode"
             value={data.zipcode}
               type="text"
-              placeholder="Zip code"
+              placeholder="Código Postal"
               className="ring-1 ring-slate-900/15 p-1 pl-3 rounded-sm outline-none w-1/2"
             />
             <input
@@ -155,7 +155,7 @@ const Order = () => {
             name="country"
             value={data.country}
               type="text"
-              placeholder="Country"
+              placeholder="País"
               className="ring-1 ring-slate-900/15 p-1 pl-3 rounded-sm outline-none w-1/2"
             />
           </div>
@@ -163,31 +163,31 @@ const Order = () => {
         {/* cart total */}
         <div className="flex flex-1 flex-col">
           <div className="flex flex-col gap-2">
-            <h4 className="bold-22">Summary</h4>
+            <h4 className="bold-22">Resumen</h4>
             <div>
               <div className="flexBetween py-3">
                 <h4 className="medium-16">Subtotal:</h4>
                 <h4 className="text-gray-30 font-semibold">
-                  ${getTotalCartAmount()}
+                  Q{getTotalCartAmount()}
                 </h4>
               </div>
               <hr />
               <div className="flexBetween py-3">
-                <h4 className="medium-16">Shipping Fee:</h4>
+                <h4 className="medium-16">Envío:</h4>
                 <h4 className="text-gray-30 font-semibold">
-                  ${getTotalCartAmount() === 0 ? 0 : 2}
+                  Q{getTotalCartAmount() === 0 ? 0 : 0}
                 </h4>
               </div>
               <hr />
               <div className="flexBetween py-3">
                 <h4 className="medium-18">Total:</h4>
                 <h4 className="bold-18">
-                  ${getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}
+                  Q{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 0}
                 </h4>
               </div>
             </div>
             <button type="submit" className="btn-secondary w-52 rounded">
-              Proceed to Checkout
+              Finalizar Orden
             </button>
           </div>
         </div>
