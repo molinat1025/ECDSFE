@@ -44,7 +44,7 @@ const Cart = () => {
                     <td className="p-1">Q{product.price}</td>
                     <td className="p-1">{cartItems[product._id]}</td>
                     <td className="p-1">
-                      ${product.price * cartItems[product._id]}
+                      Q{product.price * cartItems[product._id]}
                     </td>
                     <td className="p-1">
                       <div className="bold-22">
@@ -85,7 +85,7 @@ const Cart = () => {
             <button onClick={()=> navigate('/order')}  className="btn-secondary w-52 rounded">Registrar Orden</button>
           </div>
           <div className="flex flex-1 flex-col gap-8">
-            <h4 className="bold-20 capitalize">Ingresa el código de tu cupón:</h4>
+            <h4 className="bold-20 capitalize">Ingresa tu cupón:</h4>
             <div className="flexBetween h-[2.8rem] bg-primary ring-1 ring-slate-900/10 w-full max-w-[488px] rounded">
               <input type="text" placeholder="Código de cupón" className="pl-3 bg-transparent border-none outline-none"/>
               <button className="btn-dark rounded relative !px-10 !py-3">Cargar</button>

@@ -12,7 +12,7 @@ const Footer = () => {
            <Link to={"/"} className="bold-24 mb-4">
             <h3>Deluxe<span className='text-secondary'>Shop</span></h3>
           </Link>
-          <p className="text-center md:text-left">FusionMart is your one-stop shop for the latest in electronics, fashion, and more. We bring you high-quality products at unbeatable prices.</p>
+          <p className="text-center md:text-left">Deluxe Shop es tu tienda única para lo último en moda y más. Te ofrecemos productos de alta calidad a precios inigualables.</p>
         </div>
 
         {/* Quick Links */}

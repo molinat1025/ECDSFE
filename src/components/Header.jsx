@@ -35,12 +35,13 @@ const Header = ({ setShowLogin }) => {
 
   return (
     <header
-      className={`${
-        header ? "!py-3 bg-white shadow-sm" : ""
-      } fixed w-full mx-auto top-0 left-0 right-0 py-4 z-30 transition-all max-padd-container flexBetween`}
+      className={`${header ? "!py-3 bg-white shadow-sm" : ""
+        } fixed w-full mx-auto top-0 left-0 right-0 py-4 z-30 transition-all max-padd-container flexBetween`}
     >
       {/* logo */}
-      <Link to={"/"} className="bold-24">
+      <Link to={"/"} className="bold-24" onClick={() => {
+        window.scrollTo(0, 0);  // Desplazar la ventana a la parte superior
+      }}>
         <img src={logo} alt="logoImg" height={75} width={75} />
       </Link>
 
@@ -51,11 +52,10 @@ const Header = ({ setShowLogin }) => {
         />
         {/* Navbar Mobile */}
         <Navbar
-          containerStyles={`${
-            menuOpened
-              ? "flex items-start flex-col gap-y-12 fixed top-20 right-8 p-12 bg-white rounded-3xl shadow-md w-64 medium-16 ring-1 ring-slate-900/5 transition-all duration-300"
-              : "flex items-start flex-col gap-y-12 fixed top-20 p-12 bg-white rounded-3xl shadow-md w-64 medium-16 ring-1 ring-slate-900/5 transition-all duration-300 -right-[100%]"
-          }`}
+          containerStyles={`${menuOpened
+            ? "flex items-start flex-col gap-y-12 fixed top-20 right-8 p-12 bg-white rounded-3xl shadow-md w-64 medium-16 ring-1 ring-slate-900/5 transition-all duration-300"
+            : "flex items-start flex-col gap-y-12 fixed top-20 p-12 bg-white rounded-3xl shadow-md w-64 medium-16 ring-1 ring-slate-900/5 transition-all duration-300 -right-[100%]"
+            }`}
         />
         <div className="flexBetween gap-x-3 sm:gap-x-8">
           {/* buttons */}
@@ -70,7 +70,9 @@ const Header = ({ setShowLogin }) => {
               className="md:hidden cursor-pointer hover:text-secondary text-2xl"
             />
           )}
-          <Link to={"/cart"} className="flex relative">
+          <Link to={"/cart"} className="flex relative" onClick={() => {
+            window.scrollTo(0, 0);  // Desplazar la ventana a la parte superior
+          }}>
             <GiShoppingBag className="text-[22px] text-white bg-secondary h-9 w-9 p-2 rounded-xl" />
             <span
               className={
@@ -85,7 +87,7 @@ const Header = ({ setShowLogin }) => {
               onClick={() => setShowLogin(true)}
               className="btn-outline rounded-full"
             >
-              Login
+              Iniciar Sesión
             </button>
           ) : (
             <div className="group relative">

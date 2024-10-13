@@ -55,7 +55,7 @@ const LoginPopup = ({ setShowLogin }) => {
               name="name"
               value={data.name}
               type="text"
-              placeholder="Name"
+              placeholder="Nombre"
               required
               className="border border-slate-900/20 p-2 pl-4 rounded-md outline-none"
             />
@@ -65,7 +65,7 @@ const LoginPopup = ({ setShowLogin }) => {
             name="email"
             value={data.email}
             type="email"
-            placeholder="Email"
+            placeholder="Correo"
             required
             className="border border-slate-900/20 p-2 pl-4 rounded-md outline-none"
           />
@@ -74,39 +74,39 @@ const LoginPopup = ({ setShowLogin }) => {
             name="password"
             value={data.password}
             type="password"
-            placeholder="Password"
+            placeholder="Contraseña"
             required
             className="border border-slate-900/20 p-2 pl-4 rounded-md outline-none"
           />
         </div>
         <button type="submit" className="btn-secondary rounded-md w-full">
-          {state === "Sign Up" ? "Create account" : "Login"}
+          {state === "Sign Up" ? "Crear Cuenta" : "Iniciar Sesión"}
         </button>
         <div className="flex items-baseline gap-x-3 mt-6 mb-4">
           <input type="checkbox" required />
           <p className="relative bottom-1">
-            By continuing you agree to our <span>Terms of Service</span> and{" "}
-            <span>Privacy Policy</span>
+            Para continuar debes aceptar nuestros <span>Términos de Servicio</span> y{" "}
+            <span>Póliticas de Privacidad</span>
           </p>
         </div>
         {state === "Sign Up" ? (
           <p>
-            Already have an account?{" "}
+            ¿Ya tienes una cuenta?{" "}
             <span
               onClick={() => setState("Login")}
               className="cursor-pointer text-secondary"
             >
-              Login
+              Inicio de Sesión
             </span>
           </p>
         ) : (
           <p>
-            Don't have an account?{" "}
+            ¿Aún no tienes una cuenta?{" "}
             <span
               onClick={() => setState("Sign Up")}
               className="cursor-pointer text-secondary"
             >
-              Sign Up
+              Regístrate
             </span>
           </p>
         )}

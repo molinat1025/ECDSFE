@@ -2,9 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import axios from "axios";
 import {useNavigate} from "react-router-dom"
+import Swal from "sweetalert2";
 
 const Order = () => {
-  const { getTotalCartAmount, all_products, token, cartItems, url } =
+  const { getTotalCartAmount, all_products, token, cartItems, setCartItems, url } =
     useContext(ShopContext);
 
     const [data, setData] = useState({
@@ -19,6 +20,7 @@ const Order = () => {
       phone:"",
     })
 
+    const navigate = useNavigate()
 
     const onChangeHandler = (event)=>{
       const name = event.target.name;
@@ -46,16 +48,42 @@ const Order = () => {
         items:orderItems,
         amount:getTotalCartAmount()+0,
       }
-      let response = await axios.post(url+"/api/order/place",orderData,{headers:{token}})
-      if(response.data.success){
-        const {session_url} = response.data;
-        window.location.replace(session_url)
-      }else{
-        alert("Error")
+      try {
+        let response = await axios.post(url + "/api/order/place", orderData, {
+          headers: { token },
+        });
+    
+        if (response.data.success) {
+          setCartItems({});
+          // Mostrar alerta de éxito con SweetAlert2
+          Swal.fire({
+            icon: "success",
+            title: "Orden registrada",
+            text: "Su orden fue registrada satisfactoriamente.",
+            showConfirmButton: false,  // No mostrar el botón de confirmación
+            timer: 3000,  // La alerta desaparecerá después de 3 segundos
+            willClose: () => {
+              // Redirigir a la página de inicio después de que la alerta desaparezca
+              window.scrollTo(0, 0);
+              navigate("/"); 
+            }
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "Hubo un problema al registrar su orden. Inténtelo nuevamente.",
+          });
+        }
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Hubo un problema al procesar su orden.",
+        });
       }
     }
 
-    const navigate = useNavigate()
 
     useEffect(()=>{
       if(!token){

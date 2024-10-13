@@ -15,9 +15,13 @@ const Categories = ({ category, setCategory }) => {
       <div className="flexStart gap-12 flex-wrap">
         {categories.map((item) => (
           <div
-            onClick={() =>
-              setCategory((prev) => (prev === item.name ? "All" : item.name))
-            }
+            onClick={() => {
+              setCategory((prev) => {
+                const newCategory = prev === item.name ? "All" : item.name;
+                console.log("Categoría nueva:", newCategory); // Ver el valor actualizado
+                return newCategory;
+              });
+            }}
             id={item.name}
             key={item.name}
             className="flexCenter flex-col"

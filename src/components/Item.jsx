@@ -9,13 +9,16 @@ import { ShopContext } from "../context/ShopContext";
 
 const Item = ({ product }) => {
 
-  const { cartItems, addToCart, removeFromCart, url} = useContext(ShopContext)
+  const { cartItems, addToCart, removeFromCart, url } = useContext(ShopContext)
 
   return (
     <div>
-      <Link to={`/product/${product._id}`} className="relative top-28 group bg-white flexCenter m-4 rounded-2xl ring-1 ring-slate-200/20 hover:shadow-sm">
+      <Link to={`/product/${product._id}`} className="relative top-28 group bg-white flexCenter m-4 rounded-2xl ring-1 ring-slate-200/20 hover:shadow-sm"
+        onClick={() => {
+          window.scrollTo(0, 0);  // Desplazar la ventana a la parte superior
+        }}>
         <img
-          src={url+"/images/"+product.image}
+          src={url + "/images/" + product.image}
           alt=""
           height={222}
           width={222}
@@ -43,7 +46,7 @@ const Item = ({ product }) => {
                   className="rounded-full bg-primary h-6 w-6 p-1 ml-1 cursor-pointer"
                 />
                 <p>{cartItems[product._id]}</p>
-                <FaPlus onClick={()=> addToCart(product._id)} className="rounded-full bg-secondary h-6 w-6 p-1 mr-1 cursor-pointer" />
+                <FaPlus onClick={() => addToCart(product._id)} className="rounded-full bg-secondary h-6 w-6 p-1 mr-1 cursor-pointer" />
               </div>
             )}
           </div>
